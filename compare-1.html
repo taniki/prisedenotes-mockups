@@ -1,0 +1,83 @@
+---
+layout: default
+---
+
+{% include nav.html search=true %}
+
+{% assign session1 = site.data.sessions | sample %}
+
+<div class="container sticky-top mb-3">
+	<div class="row">
+		<div class="col col-8">
+	
+		<div class="card">
+			<h3 class="card-header">comparaison de sessions</h3>
+
+			<div class="card-block">
+					<div>{{ session1.title }}</div>
+
+					<div>
+						<small class="text-muted">{{ session1.first | date: "%d/%m/%Y %H:%M" }} → {{ session1.last | date: "%d/%m/%Y %H:%M" }}</small>
+					</div>
+			</div>
+
+			<ul class="list-group list-group-flush">
+			{% assign sessions_random = site.data.sessions | sample: 3 %}
+			{% for session in sessions_random %}
+				<li class="list-group-item" >
+					<div class="form-check mr-3">
+				  <label class="form-check-label">		
+					<input class="form-check-input ml-1" type="radio" name="blankRadio" id="blankRadio1" value="option1" aria-label="...">	
+				  </label>
+					</div>	
+					<div class="d-flex flex-column align-items-start">
+					<div>
+						{{ session.title }}
+					</div>
+
+					<div>
+						<small class="text-muted">{{ session.first | date: "%d/%m/%Y %H:%M" }} → {{ session.last | date: "%d/%m/%Y %H:%M" }}</small>
+					</div>
+					</div>
+				</li>
+			{% endfor %}
+			</ul>
+
+		<div class="card-block text-right">
+			<a class="btn btn-primary" href="compare.html">comparer</a>
+		</div>
+
+		</div>
+		</div>
+	</div>
+</div>
+
+<div class="container">
+	<div class="row">
+
+		<div class="col col-8">	
+			{% include sessions.list.html show_author=true compare=true %}
+		</div>
+		<div class="col col-4">
+			
+			<h3>Lorem ipsum</h3>
+
+			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras nisi tortor, viverra id porta id, porttitor at justo. Curabitur pharetra, sapien sit amet ornare finibus, diam tortor varius sapien, non laoreet tellus ante a justo. Donec id lacus sit amet metus gravida tempus vel vitae justo.</p>
+
+			<h3>Protocole d'annotations</h3>
+
+			<h3>Membres</h3>
+
+			<div>
+			{% for member in site.data.members %}
+			<div class="mb-2">
+				<div>{{ member.name  }} <span class="text-muted">{{ member.shared_sessions }}</span></div>
+				<div><span class="text-muted small">{{ member.last_seen }}</span></div>
+			</div>
+			{% endfor %}
+			</div>
+
+		</div>
+	</div>
+</div>
+

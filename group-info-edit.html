@@ -1,0 +1,87 @@
+---
+layout: default
+---
+
+{% include nav.html search=true %}
+
+<div class="container">
+	<div class="row justify-content-center">
+		<div class="col col-6">
+
+		<h2>Lorem ipsum</h2>
+		
+		<p class="lead">Nostrud esse amet deserunt exercitation proident in cupidatat ipsum reprehenderit adipisicing do ipsum aute. Dolor est elit voluptate voluptate velit cillum laborum eiusmod nisi.</p>
+
+		<form>
+			<div class="form-group">
+    		<label for="formGroupExampleInput">Nom du groupe</label>
+    		<input type="text" class="form-control" id="formGroupExampleInput" placeholder="Example input">
+  		</div>
+  		<div class="form-group">
+    		<label for="formGroupExampleInput2">Description</label>
+    		<input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Another input">
+  		</div>
+
+			<button type="submit" class="btn btn-primary">Enregistrer</button>
+		</form>
+	
+		<h3 class="mt-5">
+			Protocole d'annotations 
+		</h3>
+
+		<p class="text-muted small">Le procole d'annotation est ensemble de méta-catégories définies par le groupe afin d'avoir un langage commun d'intentions.</p>
+
+		<ul class="list-group" id="metacategories">
+		{% for metacategory in site.data.metacategories %}
+			<li class="list-group-item">
+			<h4><span style="border-bottom: 3px solid rgb{{ metacategory.color  }};">{{ metacategory.label }}</span></h4>
+
+			<p>{{ metacategory.description  }}</p>
+			</li>
+		{% endfor %}
+		</ul>
+
+		<ol class="list-group mt-3 mb-3" id="metacategories-extra">
+		{% for metacategory in site.data.metacategories-extra %}
+			<li class="list-group-item">
+			<h4><span style="border-bottom: 3px solid rgb{{ metacategory.color  }};">{{ metacategory.label }}</span></h4>
+
+			<p>{{ metacategory.description  }}</p>
+			</li>
+		{% endfor %}
+		</ol>
+		<button type="submit" class="btn btn-primary">Enregistrer</button> <span class="small ml-2"><a href="#">voir l'historique</a></span>
+		
+		</div>
+	</div>
+</div>
+
+
+<style>
+body.dragging, body.dragging * {
+  cursor: move !important;
+}
+
+.dragged {
+  position: absolute;
+  opacity: 0.5;
+  z-index: 2000;
+}
+
+#metacategories-extra li.placeholder {
+  position: relative;
+  /** More li styles **/
+	background-color: rgba(0,0,0,.125);
+	list-style-type: none;
+	height: 10px;
+}
+#metacategories-extra li.placeholder:before {
+  position: absolute;
+  /** Define arrowhead **/
+
+	color: red;
+	content: "";
+	width:0;
+	height: 0;
+}
+</style>

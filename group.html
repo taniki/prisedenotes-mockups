@@ -1,0 +1,71 @@
+---
+layout: default
+---
+
+{% include nav.html search=true %}
+<div class="container">
+
+	<h3 class="mb-3">Lorem ipsum</h3>
+
+	<div class="row">
+		<div class="col col-8">		
+			{% include sessions.list.html show_author=true %}
+		</div>
+		<div class="col col-4">
+			
+			<small><strong>à propos</strong> &bull; <a href="group-info.html">éditer</a></small>
+
+			<div class="card mb-3">
+				<div class="card-block">
+					<p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras nisi tortor, viverra id porta id, porttitor at justo. Curabitur pharetra, sapien sit amet ornare finibus, diam tortor varius sapien, non laoreet tellus ante a justo. Donec id lacus sit amet metus gravida tempus vel vitae justo.</p>
+				</div>
+			</div>
+
+			<small><strong>Protocole d'annotation</strong></small>
+
+			<div class="card mb-3"><div class="card-block">
+
+			{% for metacategory in site.data.metacategories %}
+			
+			<div class="mb-2">
+				<span class="badge" style="background-color: rgb{{ metacategory.color }}">{{ metacategory.label }}</span> <span class="small">{{ metacategory.description }}</span>
+			</div>
+
+			{% endfor %}
+
+			<hr />
+
+			{% for metacategory in site.data.metacategories-extra %}
+			
+			<div class="mb-2">
+				<span class="badge" style="background-color: rgb{{ metacategory.color }}">{{ metacategory.label }}</span> <span class="small">{{ metacategory.description }}</span>
+			</div>
+
+			{% endfor %}
+			</div></div>
+
+
+			<small><strong>Membres</strong></small>
+		
+			<div class="card">
+			
+			<div class="list-group list-group-flush">
+			{% for member in site.data.members %}
+			<div class="list-group-item d-flex flex-row flex-nowrap">
+				<div class="mr-3">
+					<span class="badge badge-default badge-pill">{{ member.shared_sessions }}</span>
+				</div>
+				<div>
+					{{ member.name  }}
+					<div><span class="text-muted small">{{ member.last_seen }}</span></div>
+				</div>
+			</div>
+			{% endfor %}
+			</div>
+
+			</div>
+
+		</div>
+	</div>
+</div>
+

@@ -1,0 +1,127 @@
+---
+layout: default
+---
+
+{% include nav.html search=true %}
+
+<div class="container">
+	<div class="row justify-content-center">
+		<div class="col col-6">
+	
+		<h3 class="mt-5">
+			Protocole d'annotation 
+		</h3>
+
+		<p class="text-muted small">Le procole d'annotation est ensemble de méta-catégories définies par le groupe afin d'avoir un langage commun d'intentions.</p>
+
+		<p class="small text-muted mb-1">Méta-catégories obligatoires</p>
+
+		<ul class="list-group mb-3" id="metacategories">
+		{% for metacategory in site.data.metacategories %}
+			<li class="list-group-item">
+			<p class="mb-1"><span class="badge" style="background-color: rgb{{ metacategory.color  }};">{{ metacategory.label }}</span></p>
+
+			<p class="small text-muted mb-0">{{ metacategory.description }}</p>
+			</li>
+		{% endfor %}
+		</ul>
+
+		<p class="small text-muted mb-1">Méta-catégories propres au groupe</p>
+
+		<ol class="list-group mb-2" id="metacategories-extra">
+		{% for metacategory in site.data.metacategories-extra %}
+			<li class="list-group-item">
+			<p class="mb-1 d-flex w-100 justify-content-between">
+				<span class="badge" style="background-color: rgb{{ metacategory.color  }};">{{ metacategory.label }}</span>
+				<a class="small" href="metacategory-edit.html" data-toggle="modal" data-target="#exampleModal">éditer</a>
+			</p>
+
+			<p class="small text-muted mb-0">{{ metacategory.description }}</p>
+			</li>
+		{% endfor %}
+		</ol>
+
+		<div class="text-right mb-3">
+				<a href="#" class="" data-toggle="modal" data-target="#exampleModal">Ajouter une nouvelle méta-catégorie</a>
+			</div>
+
+		<div class="d-flex w-100 justify-content-between">
+			<div> </div>
+
+			<div>
+				<span class="mr-2"><a href="#">voir l'historique</a></span><button type="submit" class="btn btn-primary">Enregistrer</button> 
+			</div>
+		</div>
+
+		
+		</div>
+	</div>
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Ajouter ou modifier</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+            <div class="modal-body">
+        			<form>
+          			<div class="form-group">
+            			<label for="metacategory-label" class="form-control-label">Étiquette</label>
+            			<input type="text" class="form-control" id="metacategory-label">
+          			</div>
+          			<div class="form-group">
+            			<label for="metacategory-color" class="form-control-label">Couleur</label>
+            			<input type="text" class="form-control" id="metacategory-color">
+          			</div>
+          			<div class="form-group">
+            			<label for="message-text" class="form-control-label">Description</label>
+            			<textarea class="form-control" id="message-text"></textarea>
+          		</div>
+        			</form>
+      			</div>
+			</div>
+      <div class="modal-footer">
+				<a href="#" class="mr-auto text-danger">supprimer</a>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+        <button type="button" class="btn btn-primary">Enregistrer</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<style>
+body.dragging, body.dragging * {
+  cursor: move !important;
+}
+
+.dragged {
+  position: absolute;
+  opacity: 0.5;
+  z-index: 2000;
+}
+
+#metacategories-extra li.placeholder {
+  position: relative;
+  /** More li styles **/
+	background-color: rgba(0,0,0,.125);
+	list-style-type: none;
+	height: 10px;
+}
+#metacategories-extra li.placeholder:before {
+  position: absolute;
+  /** Define arrowhead **/
+
+	color: red;
+	content: "";
+	width:0;
+	height: 0;
+}
+</style>

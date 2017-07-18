@@ -1,0 +1,38 @@
+<div class="row">
+	<div class="col offset-md-2 col-10"><h3>Lorem Ipsum Dolor</h3></div>
+</div>
+
+<div class="row">
+	<div class="col offset-md-2 col-10">
+		<p class="lead">{{ site.data.bacon[0] | markdownify  }}</p>
+		<hr>
+	</div>
+</div>
+
+<div class="row mb-2">
+	<div class="col offset-md-2 col-10"><small class="text-muted"><strong>23 juin 2017</strong></small></div>
+</div>
+
+{% for note in site.data.bacon %}
+<div class="row note mb-2">
+	<div class="col col-2 d-flex flex-column justify-content-between small text-muted text-right metadata">
+		<div>10:20</div>
+		<div class="filler"></div>
+		<div>10:30</div>
+	</div>
+
+	<div class="col col-10 content">
+		{{ note | markdownify }}
+
+	</div>
+</div>
+
+
+{% if include.margins=="bottom" %}
+<div class="row">
+	<div class="col col-10 offset-md-2 small text-muted">
+		{{ note | truncate: "200" | markdownify }}
+	</div>
+{% endif %}
+</div>
+{% endfor %}

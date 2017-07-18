@@ -1,0 +1,20 @@
+// cmd:
+// $ seqdiag -f /usr/share/fonts/truetype/dejavu/DejaVuSansMono.ttf logout.alt.diag
+
+seqdiag {
+
+	=== online ===
+
+	browser ->	client 												[label="logout"]
+							client  -> server 						[label="notify revoke token"]
+												 // server  -> server 	[label="delete token"]
+							client  <- server 						[label="acknowledge"]
+							client  -> client 						[label="delete token"]
+	browser <-	client												[label="redirect to login"];
+
+	=== offline ===
+
+	browser ->	client 												[label="logout"]
+							client  -> server 						[label="ask revoke token", failed]
+	browser <-	client												[label="warning, keep token and active user"];
+}

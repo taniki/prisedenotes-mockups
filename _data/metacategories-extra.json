@@ -1,0 +1,20 @@
+[
+  {
+    "_id": "595e48cd8f18f8746b2809fc",
+    "label": "magna in",
+    "color": "(31, 108, 47)",
+    "description": "Dolor est elit voluptate voluptate velit cillum laborum eiusmod nisi."
+  },
+  {
+    "_id": "595e48cd29bda1c999b31230",
+    "label": "incididunt duis",
+    "color": "(131, 198, 76)",
+    "description": "In irure do excepteur anim nulla minim deserunt aute eiusmod."
+  },
+  {
+    "_id": "595e48cd4bb9bb5e1158cf47",
+    "label": "cillum laborum",
+    "color": "(119, 69, 77)",
+    "description": "Nostrud esse amet deserunt exercitation proident in cupidatat ipsum reprehenderit adipisicing do ipsum aute."
+  }
+]

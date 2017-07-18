@@ -1,0 +1,36 @@
+# cmd:
+# $ actdiag -f /usr/share/fonts/truetype/dejavu/DejaVuSans.ttf lifecycle.diag
+
+
+actdiag {
+
+  session -> note -> revision       -> share
+             note -> categorisation -> share
+                                       share -> compare -> synthesis -> cite -> source
+
+  lane user {
+    label = "Utilisateur"
+
+    session [label="Session"]
+    note [label="Prise de notes"]
+    revision [label="Révision"]
+    categorisation [label="Annotation"]
+
+    synthesis [label="Synthèse"]
+  }
+
+  lane group {
+    label = "Groupe"
+
+    share [label="Partage"]
+    compare [label="Comparaison"]
+  }
+
+  lane platform {
+    label = "Plateforme"
+
+    cite [label="Citation"]
+    source [label="Authoring"]
+  }
+
+}

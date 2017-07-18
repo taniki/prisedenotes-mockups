@@ -1,0 +1,38 @@
+{% for session in site.data.sessions %}
+<div class="mb-3">
+	<h5 class="mb-0">
+		<a href="/">{{ session.title }}</a>
+		
+		<span class="ml-1 fa-stack text-muted" style="font-size:0.5em;">
+			<i class="fa fa-cloud fa-stack-2x" aria-hidden="true"></i>
+			<i class="fa fa-check fa-stack-1x fa-inverse" aria-hidden="true"></i>
+		</span>
+
+	</h5>
+
+	<small class="text-muted">
+		{% if include.show_author %}
+			{{ site.data.members | map: 'name' | sample  }} • 
+		{% endif %}
+
+		{{ session.first | date: "%d/%m/%Y %H:%M" }} → {{ session.last | date: "%d/%m/%Y %H:%M" }}
+	</small>
+
+	<div class="mb-2">
+		<small><strong>{{ session.annotations }} notes</strong> &bull; <a href="#">partager avec le groupe</a>  &bull; <a href="compare-1.html">comparer avec une autre session</a></small>
+	</div>
+
+	<div>{{ session.description  }}</div>
+
+	<div class="keywords mt-1">
+	<i class="fa fa-book" aria-hidden="true"></i> mots-clés : 
+
+	{% for keyword in session.keywords  %}
+		<span class="badge badge-default">{{ keyword }}</span>
+	{% endfor  %}
+	</div>
+
+	<hr>
+	
+</div>
+{% endfor %}

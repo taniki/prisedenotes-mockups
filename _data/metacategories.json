@@ -1,0 +1,20 @@
+[
+  {
+    "_id": "595e48cd8f18f8746b2809fc",
+    "label": "mot-clé",
+    "color": "(255,170,213)",
+    "description": "Les mots surlignés avec cette méta-catégorie seront considérés comme des mots-clés et seront ainsi regroupés comme tel dans une exploitation ultérieur."
+  },
+  {
+    "_id": "595e48cd29bda1c999b31230",
+    "label": "important",
+    "color": "(255,255,102)",
+    "description": "Question. In irure do excepteur anim nulla minim deserunt aute eiusmod."
+  },
+  {
+    "_id": "595e48cd4bb9bb5e1158cf47",
+    "label": "commentaire",
+    "color": "(51,153,255)",
+    "description": "Contexte. Nostrud esse amet deserunt exercitation proident in cupidatat ipsum reprehenderit adipisicing do ipsum aute."
+  }
+]

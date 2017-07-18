@@ -1,0 +1,29 @@
+---
+layout: default
+---
+
+{% include nav.html  %}
+
+<div class="session container">	
+	
+<div class="row">
+<div class="col col-9">
+
+{% include filter.html %}
+
+{% include sessions.list.html %}
+
+</div>
+<div class="control col col-3">
+	<button class="btn btn-primary w-100">Nouvelle session</button>
+
+	<div class="sync-status text-center">
+	<small class="text-muted">dernière synchro : 01/01/2018</small>
+	</div>
+
+	<h3 class="mt-3">Mes mots-clés</h3>
+
+</div>
+
+</div>
+</div>
