@@ -26,7 +26,6 @@
 
 	<div class="col col-6 content">
 		{{ note | markdownify }}
-
 	</div>
 
 	{% if include.margins=="side" %}
@@ -34,7 +33,6 @@
 		{{ note | truncate: "100" | markdownify }}
 	</div>
 	{% endif %}
-</div>
 
 
 {% if include.margins=="bottom" %}
@@ -45,3 +43,8 @@
 {% endif %}
 </div>
 {% endfor %}
+
+
+</div>
+
+
